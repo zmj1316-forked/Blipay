@@ -9,5 +9,6 @@ const db = new Sequelize(config.db, config.username, config.password, {
 });
 
 module.exports = {
-  User: require('./user')(db)
+  User: require('./user')(db),
+  Item: require('./item')(db)
 };

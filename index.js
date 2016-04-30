@@ -98,6 +98,6 @@ app.use((err, req, res, next) => {
 const server = http.createServer(app);
 
 // 开始监听
-server.listen(port, () => {
+server.listen(8080, () => {
   console.log(`App is listening on port ${server.address().port}`);
 });
