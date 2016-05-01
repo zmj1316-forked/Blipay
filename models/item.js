@@ -1,5 +1,4 @@
 const Sequelize = require('sequelize');
-const index = require("./index");
 
 module.exports = (db) => {
   const Item = db.define('item', {
@@ -16,10 +15,8 @@ module.exports = (db) => {
       type: Sequelize.STRING
     }
 
-  });
-  associate: (models)=>{
-    Item.belongsTo(models.User,{as: 'sid'});
-  };
+  }
+  );
   if (!global.isProduction) {
     Item.sync().then(() => {
       console.log('Table `Item` created');

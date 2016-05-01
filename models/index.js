@@ -1,7 +1,6 @@
 const glob = require('glob');
 const Sequelize = require('sequelize');
 const config = require('../config').database;
-
 const db = new Sequelize(config.db, config.username, config.password, {
   host: config.host,
   dialect: config.dialect,
@@ -10,5 +9,5 @@ const db = new Sequelize(config.db, config.username, config.password, {
 
 module.exports = {
   User: require('./user')(db),
-  Item: require('./item')(db)
+  Item: require('./item')(db).associate(this.User)
 };
