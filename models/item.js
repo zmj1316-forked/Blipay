@@ -1,7 +1,7 @@
 const Sequelize = require('sequelize');
 
 module.exports = (db) => {
-  const Item = db.define('item', {
+  return db.define('item', {
     price: {
       type: Sequelize.DECIMAL(10, 2)
     },
@@ -14,13 +14,5 @@ module.exports = (db) => {
     thumb: {
       type: Sequelize.STRING
     }
-
-  }
-  );
-  if (!global.isProduction) {
-    Item.sync().then(() => {
-      console.log('Table `Item` created');
-    });
-  }
-  return Item;
+  });
 };

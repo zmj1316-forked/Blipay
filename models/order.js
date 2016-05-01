@@ -1,8 +1,7 @@
 const Sequelize = require('sequelize');
 
-
 module.exports = (db) => {
-  const Order = db.define('order', {
+  return db.define('order', {
     count: {
       type: Sequelize.INTEGER
     },
@@ -18,14 +17,5 @@ module.exports = (db) => {
     isRefunding: {
       type: Sequelize.BOOLEAN
     }
-
-  }
-  );
-
-  // if (!global.isProduction) {
-  //   Order.sync().then(() => {
-  //     console.log('Table `Order` created');
-  //   });
-  // }
-  return Order;
+  });
 };
